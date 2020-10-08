@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: soplanning
+  namespace: soplanning
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: soplanning
+    spec:
+      securityContext:
+        fsGroup: 33
+      containers:
+      - image: quay.io/rverchere/soplanning
+        name: soplanning
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /var/www/html/smarty/templates_c
+          name: soplanning
+
+      restartPolicy: Always
+      volumes:
+      - name: soplanning
+        persistentVolumeClaim:
+          claimName: soplanning-pvc
