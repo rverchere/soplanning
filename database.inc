@@ -1,10 +1,10 @@
 <?php
 
 // Database Parameters
-$cfgHostname = 'localhost';
+$cfgHostname = 'mysql';
 $cfgDatabase = 'soplanning';
-$cfgUsername = 'root';
-$cfgPassword = 'root';
+$cfgUsername = 'soplanning';
+$cfgPassword = 'soplanning';
 $cfgSqlType = 'mysql';
 $cfgPrefix = 'planning_';
 ?>
