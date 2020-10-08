@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: mariadb
+  namespace: soplanning
 spec:
   replicas: 1
   strategy:
@@ -9,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: mariab
+        app: mariadb
     spec:
       containers:
       - env:
@@ -33,4 +34,4 @@ spec:
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
-          claimName: mariab-pv-claim
+          claimName: mariadb-pv-claim

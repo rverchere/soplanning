@@ -1,10 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  creationTimestamp: null
-  labels:
-    io.kompose.service: site-claim0
-  name: site-claim0
+  name: soplanning
 spec:
   accessModes:
   - ReadWriteOnce
