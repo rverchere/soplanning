@@ -6,14 +6,13 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/backend-protocol: HTTP
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
   labels:
     app: soplanning
 spec:
   rules:
-    - http:
+    - host: soplanning.lab.local
+      http:
         paths:
           - backend:
               serviceName: soplanning
               servicePort: 80
-            path: /soplanning/?(.*)
