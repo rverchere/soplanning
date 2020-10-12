@@ -4,9 +4,9 @@ metadata:
   name: soplanning
   namespace: soplanning
 spec:
-  replicas: 1
+  replicas: 3
   strategy:
-    type: Recreate
+    type: RollingUpdate
   template:
     metadata:
       labels:
@@ -22,8 +22,9 @@ spec:
         volumeMounts:
         - mountPath: /var/www/html/smarty/templates_c
           name: soplanning
+      nodeSelector:
+        datacenter: west
       restartPolicy: Always
       volumes:
       - name: soplanning
-        persistentVolumeClaim:
-          claimName: soplanning-pvc
+        emptyDir: {}
