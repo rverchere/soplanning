@@ -1,0 +1,26 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: soplanning-web
+  namespace: soplanning
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: PathPrefix(`/soplanning`)
+      kind: Rule
+      services:
+        - name: soplanning
+          port: 80
+      middlewares:
+        - name: soplanning-stripprefix
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: soplanning-stripprefix
+spec:
+  stripPrefix:
+    prefixes:
+      - /soplanning
